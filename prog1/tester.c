@@ -26,30 +26,30 @@ int main(void)
    hex[4]='\0';
    do
    {
-      int k;
-      printf("Enter integer to convert to bits: ");
-      assert(scanf("%d", &i) == 1);
-      count = int2bitstr(i, str);
-      printf("%d : %s\n", i, str);
-      printf("#1s in the bit pattern: %d\n",count);
+    int k;
+    printf("Enter integer to convert to bits: ");
+    assert(scanf("%d", &i) == 1);
+    count = int2bitstr(i, str);
+    printf("%d : %s\n", i, str);
+    printf("#1s in the bit pattern: %d\n",count);
 
-/*
- *   Now print out binary numbers 4 digits at a time for hex confirmation 
- */
-      printf("0x%x : ", i);
-      for (k=0; k<32; k+=4){
-      	char *sp = str+k;
-	hex[0] = sp[0];
-	hex[1] = sp[1];
-	hex[2] = sp[2];
-	hex[3] = sp[3];
-	printf("%s ",hex);
-      }
-      printf("\n");
-      float f = i;
-      int2bitstr(f2u(f),str);
-      printf("%f : %s\n",f,str);
-      printf("exp : %d\n", get_exp_value(f));
+    /*
+    *   Now print out binary numbers 4 digits at a time for hex confirmation 
+    */
+    printf("0x%x : ", i);
+    for (k=0; k<32; k+=4){
+      char *sp = str+k;
+      hex[0] = sp[0];
+      hex[1] = sp[1];
+      hex[2] = sp[2];
+      hex[3] = sp[3];
+      printf("%s ",hex);
+    }
+    printf("\n");
+    float f = i;
+    int2bitstr(f2u(f),str);
+    printf("%f : %s\n",f,str);
+    printf("exp : %d\n", get_exp_value(f));
    }
    while(i);
    return(0);  /* signal normal completion */

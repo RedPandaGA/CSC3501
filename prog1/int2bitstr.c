@@ -1,5 +1,14 @@
 int int2bitstr(int I, char *str) {
-	/* implment here */
+	int counter = 0;
+	for(int position = 0; position < 32; position++){
+		unsigned int bit = (I >> position) & 1;
+		if(bit == 1){
+			counter++;
+			str[32-position] = 1;
+		} else {
+			str[32-position] = 0;
+		}
+	}
 }
 
 int get_exp_value(float f) {
