@@ -4,9 +4,9 @@ int int2bitstr(int I, char *str) {
 		unsigned int bit = (I >> position) & 1;
 		if(bit == 1){
 			counter++;
-			str[32-position] = 1;
+			str[31-position] = 1;
 		} else {
-			str[32-position] = 0;
+			str[31-position] = 0;
 		}
 	}
 }
