@@ -14,7 +14,20 @@ int int2bitstr(int I, char *str) {
 }
 
 int get_exp_value(float f) {
-	unsigned f2u(float f);
-	unsigned int ui = f2u(f);
-	return 0;
+	int ret = 0;
+  	union{
+		float f;
+		struct {
+            unsigned int mantissa: 23;
+            unsigned int exponent: 8;
+			unsigned int sign: 1;
+        } s;
+	} u;
+	u.f = f;
+	if((int)u.s.exponent == 0){
+		ret = -126;
+	} else {
+		ret = ((int)u.s.exponent - 127);
+	}
+	return ret;
 }
