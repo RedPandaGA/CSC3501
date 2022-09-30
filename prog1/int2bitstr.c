@@ -26,6 +26,8 @@ int get_exp_value(float f) {
 	u.f = f; //assign f so that the bit field matches the bit value of f
 	if((int)u.s.exponent == 0){ //check if the expoenent is 0 and set ret to -126.
 		ret = -126;
+	} else if ((int)u.s.exponent == 256){//Check if it is infinity 
+		ret = -128;
 	} else {
 		ret = ((int)u.s.exponent - 127); //else set ret to the exponent value subtracting the bias.
 	}
